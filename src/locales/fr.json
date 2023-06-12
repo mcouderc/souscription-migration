@@ -1,0 +1,687 @@
+{
+    "page": {
+      "home": {
+        "welcome": "Welcome to Vuetify"
+      },
+      "ia": {
+        "title": "Sélectionner le code sur lequel vous souhaitez travailler"
+      },
+      "page": {
+        "title": "Titre de la page test"
+      },
+      "loader": {
+        "connexionLabel": "Connexion en cours...",
+        "contratCreation": "Contrat en cours de création, merci de patienter."
+      },
+      "pageNotFound": {
+        "title": "Page non trouvée",
+        "subTitle": "Erreur 404"
+      },
+      "PageNotAuthorized": {
+        "title": "Page à l'accès non autorisé",
+        "subTitle": "Erreur 403"
+      },
+      "PageError": {
+        "title": "Une erreur est survenue, veuillez quitter et vous reconnecter.",
+        "subTitle": "Erreur"
+      },
+      "listDevis": {
+        "title": "Devis",
+        "modal": {
+          "title": "Duplication de devis",
+          "text": "Renseigner votre date d'effet souhaitée"
+        },
+        "devisError": "Erreur de récupération des devis",
+        "redactorError": "Erreur de récupération des rédacteurs"
+      },
+      "pricing": {
+        "cardSelected": "Déjà sélectionnée",
+        "cardPrimePerMonths": "ou {prime} / mois",
+        "cardPrime": "{prime} "
+      },
+      "branch": {
+        "title": "Déclarer les filiales du souscripteur immatriculées en France ou à Monaco (impossible si aucun SIRET n'est renseigné pour le souscripteur)",
+        "titleToContrat": "Filiales du souscripteur immatriculées en France ou à Monaco"
+      },
+      "additionalInformation": {
+        "nafCodeActivty": "Code NAF de l’activité principale",
+        "activity": "Activité précise",
+        "activityAgricole": "Activité principale",
+        "numberEmployee": "Nombre de salariés",
+        "numberEmployeePermanent": "Dont salarié",
+        "numberEmployeeSimple": "Dont salariés permanents",
+        "numberCoOwnerVertical": "Nombre de copropriétés verticales",
+        "numberIndividualVillas": "Nombre de villas individuelles",
+        "typeManagement": "Type de gestion",
+        "dateCreation": "Date de création",
+        "presidentASL": "Président ASL",
+        "benevoleCooperatifSYndic": "Syndic bénévole ou coopératif",
+        "professionalSyndic": "Syndic professionnel",
+        "groupeAsl": "Présence de plusieurs ASL au sein d’une ASL les regroupant ?",
+        "totalCA": "Montant CA HT total (toutes filiales confondues)",
+        "montantCATotal": "Montant CA HT total",
+        "exercise": "Exercice de référence (année)",
+        "numberVehicles": "Nombre de véhicules",
+        "numberAgricoleVehicles": "Nombre de véhicules et engins agricoles",
+        "numberInstitutions": "Nombre d’établissements secondaires",
+        "numberResidenceSecondaire": "Nombre de résidences secondaires",
+        "nbResSecondError": "Trop de résidences secondaires ont été déclarées",
+        "textSci": "Déclarer la ou les SCI dont le souscripteur détient des parts et dont les locaux servent à l'exploitation de l'activité",
+        "textSciIsToContrat": "SCI dont le souscripteur détient des parts et dont les locaux servent à l'exploitation de l'activité",
+        "title": "Devis",
+        "subscriber": "Souscripteur",
+        "representedBy": "Représenté par",
+        "beneficiary": "Bénéficiaire",
+        "riskDescription": "Description du risque",
+        "branch": "Filiales immatriculées en France ou à Monaco",
+        "history": "Antécédents",
+        "editor": "Rédacteur du devis",
+        "number": "Numéro de devis",
+        "surfaceExploitation": "Surface d'exploitation",
+        "nombreTravailleursExploitation": "Nombre de personnes travaillant sur l'exploitation",
+        "budgetHT": "Budget HT en euros",
+        "typeAssociation": "Type d'Association",
+        "employeur": "Employeur",
+        "notEmployeur": "Non employeur",
+        "numberOfMembers": "Nombre d'adhérents",
+        "preRemplirSiret": "Pré-remplir le formulaire à partir du SIRET",
+        "preRemplirButton": "Pré-remplir",
+        "preRemplirPappers": "Souhaitez-vous actualiser les données du formulaire avec les données liées au SIRET ? Ceci pourrait écraser les données déjà saisies dans cette page.",
+        "amountAnnualRents": "Montant des loyers annuels",
+        "numberLotsHabitations": "Nb de lots d'habitation",
+        "numberLotsProfessionals": "Nb de lots professionnels",
+        "numberLotsCommercials": "Nb de lots commerciaux",
+        "numberLotsFurnishedRentals": "Nb de lots de location meublée",
+        "numberLotsGaragesCellars": "Nb de lots de garage / cave",
+        "numberRuralLots": "Nb de lots ruraux",
+        "numberLotsBareLand": "Nb de lots de terrain nu / parcelle nue",
+        "numberLotsRentalsSeasonsOccasional": "Nb de lots de location saisonnière occasionnelle",
+        "textBien": "Liste des adresses des biens",
+        "sectorActivty": "Secteur d'activité",
+        "numeroImmatriculation": "Numéro d'immatriculation",
+        "presenceLotsHabitations": "La copropriété est-elle composée de lots d'habitation ?",
+        "typeCopropriete": "Types de copropriété",
+        "superficieCopro": "Nombre de m2",
+        "nombreLots": "Nombre de lots",
+        "regenerateDocument": "Le document du devis a bien été régénéré",
+        "aslNomSyndic": "Nom du syndic en exercice ou du président de l'ASL"
+      },
+      "tarification": {
+        "titleDescription": "Description",
+        "titleExample": "Exemple",
+        "title": "Informations tarifantes",
+        "formuleNotEligible": "Aucune formule éligible",
+        "errorTarification": "Problème lors de la tarification",
+        "errorRecalcul": "Problème lors du recalcul",
+        "errorGetCritere": "Problème lors de la recupération des critères",
+        "errorHydrate": "Problème lors de l'hydratation du devis",
+        "errorUpdate": "Problème lors de la mise à jour du devis",
+        "price": "Prix",
+        "optionsSubTitle": "Les options disponibles",
+        "noOption": "Pas d'option disponible",
+        "formula": "Les formules",
+        "subTitle": "Renseigner les champs obligatoires",
+        "detailGarantie": "*Le détail des garanties est accessible au passage de la souris ou au clic sur "
+      },
+      "payment": {
+        "title": "RENSEIGNEMENT CONTRAT",
+        "information": "INFORMATION CONTRAT",
+        "pricing": "TARIF",
+        "payment": "MODALITES DE PAIEMENT",
+        "depository": "RENSEIGNEMENT PRÉLÈVEMENT",
+        "updateError": "Erreur lors du calcul des primes",
+        "submitSuccess": "Devis transformé en contrat",
+        "submitError": "Erreur lors de la transformation en contrat"
+      },
+      "addClient": {
+        "text": "Si le souscripteur est déjà (ou a déjà été) détenteur d'un contrat CFDP auprès de votre cabinet, rechercher ce souscripteur afin de lui attacher ce nouveau devis.",
+        "textbis": "Sinon, créer un nouvau prospect",
+        "nom": "Raison sociale",
+        "siret": "SIRET",
+        "adresse": "Adresse",
+        "codePostal": "Code postal",
+        "ville": "Ville",
+        "pays": "Pays",
+        "telephone": "Tel",
+        "mail": "Mail",
+        "nbContrat": "Nb contrat",
+        "createNewProspect": "Créer un nouveau prospect pour ce devis",
+        "newProspect": "Nouveau prospect",
+        "keepSame": "Conserver ma saisie",
+        "searchExistedClient": "Rechercher un souscripteur existant",
+        "errorRecupClient": "Échec de récupération des informations pour ce souscripteur"
+      },
+      "summary": {
+        "title": "Récapitulatif du contrat",
+        "withoutSignin": "Terminer sans signature électronique",
+        "withSignin": "Signer électroniquement",
+        "subTitle": "Identification du signataire du contrat",
+        "text": " Afin de signer électroniquement ce contrat, merci de renseigner l'indentité de la personne qui va signer ce contrat ainsi que ses coordonnées (téléphone portable et adresse mail)",
+        "guarantee": "Garantie",
+        "subscriber": "Souscripteur",
+        "mail": "Adresse email",
+        "product": "Produit",
+        "idContract": "N° de contrat",
+        "date": "Date d'effet",
+        "deadline": "Echéance principale",
+        "splitting": "Fractionnement",
+        "primeTTC": "Prime annuelle TTC",
+        "prorata": "Montant du prorata de prime TTC",
+        "period": "Pour la période",
+        "signin": {
+          "error": "Erreur de signature",
+          "success": "Circuit de signature électronique correctement lancé"
+        },
+        "commission": {
+          "title": "Commission",
+          "taux": "Taux",
+          "montant": "Montant de com sur la période",
+          "reverser": "TTC-com (à reverser le cas échéant)",
+          "errorGetCommission": "Erreur lors de la récupération des commissions"
+        }
+      },
+      "subscription": {
+        "title": "Sub",
+        "vintage": "millésime",
+        "popup": {
+          "title": "Envoyer par mail",
+          "attachement": "Pièces jointes: {qty} docs ....."
+        },
+        "popupDate": {
+          "title": "Indiquer une date d'effet souhaitée",
+          "titleContractStepper": "Indiquer une date d'effet du contrat",
+          "input": "Date d'effet souhaitée",
+          "inputDataContractStepper": "Date d'effet du contrat"
+        },
+        "popupVintage": {
+          "title": "Sélectionnez le millésime du produit souhaité"
+        },
+        "produits": {
+          "title": "Tous nos produits {market}",
+          "titleLastProducs": "Derniers produits utilisés"
+        },
+        "notifications": {
+          "devis": {
+            "title": "Devis",
+            "devisExpire": "Devis expirant sous 15 jours : ",
+            "devisEnCours": "Devis en cours : ",
+            "ContratRealise": "Contrats réalisés en {anneeEnCours} : {contratRealisesAnneeEnCours}"
+          }
+        },
+        "index": {
+          "search": {
+            "title": "Je connais le produit que je souhaite proposer",
+            "label": "Rechercher un produit",
+            "input": "Recherche",
+            "noData": "Aucun résultat"
+          },
+          "prospect": {
+            "title": "Quel est votre prospect ?",
+            "subTitle": "Quel est votre prospect ?",
+            "showAlls": "Lister tous les produits"
+          }
+        },
+        "siret": {
+          "title": "Vérifions que vous pouvez faire une offre",
+          "subTitle": "Selon les règles du courtage nous devons vérifier que vous pouvez émettre une offre à ce propsect",
+          "siretElligible": "Numéro d'identification éligible",
+          "siretBadFormat": "Erreur sur le format du numéro d'identification",
+          "form": {
+            "selectCountry": "Sélectionner un pays",
+            "societyIncomming": "Société en cours de création",
+            "siretLabel": "{code}"
+          },
+          "identificationTitle": "Retrouver toutes les informations légales par nom d'entreprise",
+          "precisionTitle": "(actif uniquement quand le pays France est sélectionné)",
+          "initDevisSuccess": "Initialisation du devis réussi",
+          "initDevisFail": "Erreur lors de l'initialisation du devis"
+        },
+        "noSiret": {
+          "title": "Votre numéro d'identification n'est pas éligible",
+          "subTitle": "Attention un devis/contrat est en cours de validité pour cette entreprise, veuillez contacter votre délégation."
+        }
+      },
+      "devisOverview": {
+        "ajustement": "Ajustement tarifaire",
+        "primeAvantVariation": "Prime annuelle TTC avant variation de tarif",
+        "primeTtc": "Prime annuelle TTC",
+        "calculateTarif": "Recalculer tarif",
+        "variationPrimeTechnique": "Variation prime technique",
+        "variationCommissionCourtier": "Variation commission courtier",
+        "recuperationDevis": {
+          "success": "Le devis a bien été émis",
+          "error": "Erreur récuperation devis"
+        },
+        "detailsGaranties": {
+          "title": "Détail des garanties",
+          "titleCardOverview": "Garantie(s)",
+          "noClauses": "Il n'y a pas de clauses à afficher.",
+          "noGaranty": "La formule souscrite ne contient pas de garanties."
+        },
+        "detailOptions": {
+          "titleCardOverview": "Option(s) sélectionnée(s)",
+          "noOptions": "Aucune option sélectionnée"
+        },
+        "recalculTarif": {
+          "error": "Erreur de recalcul tarif",
+          "success": "Recalcul tarif effectué"
+        },
+        "documents": {
+          "empty": "La liste des documents est vide",
+          "error": "Erreur de récupération des documents",
+          "errorGenerationArchive": "Erreur dans la génération de l'archive",
+          "seeMore": "Voir plus",
+          "seeLess": "Voir moins",
+          "downloads": "Téléchargements"
+        },
+        "listData": {
+          "dateEffetSouhaite": "Date d'effet souhaitée",
+          "dateCreationDevis": "Date de création du devis",
+          "dateFinValidite": "Date de fin de validite",
+          "primeTTC": "Prime TTC",
+          "primeHT": "Prime HT",
+          "emisPar": "Emis par",
+          "nom": "Nom",
+          "adresse": "Adresse",
+          "pays": "Pays",
+          "telephone1": "Téléphone 1",
+          "telephone2": "Téléphone 2",
+          "email": "Email",
+          "siret": "SIRET",
+          "representPar": "Représenté par",
+          "dateNaissance": "Date de naissance",
+          "lieuNaissance": "Lieu de naissance",
+          "numeroImmatriculation": "Numéro d'immatriculation",
+          "nomASL": "Nom de l'ASL",
+          "nomCopro": "Nom de la copropriété",
+          "nombreProcedures": "Nombre de procédures",
+          "nombreProceduresDefense": "Nombre de procédures en défense",
+          "nombreProceduresDemande": "Nombre de procédures en demande",
+          "assuranceDejaSouscrite": "Assurance déjà souscrite",
+          "resiliationAssureur": "Résiliation assureur",
+          "exerciceReference": "Exercice de référence",
+          "montantCATotal": "Montant CA HT total",
+          "nombreEtablissementsSecondaires": "Nombre d'établissements secondaires",
+          "nombreSalaries": "Nombre de salariés",
+          "dateCreationEntreprise": "Date de création de l'entreprise",
+          "nombreVehicules": "Nombre de véhicules",
+          "nombreResidencesSecondaires": "Nombre de résidences secondaires",
+          "redressementJudiciaire": "Redressement judiciaire",
+          "locauxSciAvecPartsSouscripteur": "Les locaux servant à l'exploitation de l'activité appartiennent-ils à une SCI dont le souscripteur détient des parts ?",
+          "numeroInscription": "Numéro d'inscription",
+          "secteurActivite": "Secteur d'activité",
+          "activitePrecise": "Activité statutaire précise",
+          "budgetHTTotal": "Budget HT total",
+          "nombreAdherent": "Nombre d'adhérents",
+          "typeAssociation": "Type d'association",
+          "activitesDiverAgricole": "Activités de diversification agricole",
+          "activitesCommerceDirecte": "Activités avec commercialisation directe",
+          "activitesPrincipale": "Activité principale",
+          "surfaceExploitation": "Surface d'exploitation",
+          "nombreTravailleursExploitation": "Nombre de travailleurs sur l'exploitation",
+          "dontSalariesPermanent": "Dont salariés permanents",
+          "nombreVillasIndividuelles": "Nombre de villas individuelles",
+          "nombreCoproVerticale": "Nombre de copropriétés verticales",
+          "typeGestion": "Type de gestion",
+          "groupementASL": "Groupement d'ASL dans une autre ASL",
+          "montantLoyersAnnuels": "Montant des loyers annuels",
+          "nombreLotHabitation": "Nombre de lots d'habitation",
+          "nombreLotPro": "Nombre de lots professionnels",
+          "nombreLotCommercial": "Nombre de lots commerciaux",
+          "nombreLotLocationMeublee": "Nombre de lots de location meublée",
+          "nombreLotGarageCave": "Nombre de lots de garage/cave",
+          "nombreLotRural": "Nombre de lots ruraux",
+          "nombreLotTerrainParcelleNue": "Nombre de lots de terrain/parcelle nue",
+          "nombreLotLocationSaison": "Nombre de lots de location saisonnière",
+          "presenceLotHabitation": "Présence de lots d'habitation",
+          "typeCopro": "Type de copropriété",
+          "nombreM2": "Nombre de m²",
+          "nombreLot": "Nombre de lots",
+          "typeBien": "Type de bien",
+          "raisonSociale": "Raison sociale",
+          "identifiantLegal": "Identifiant légal",
+          "codeNaf": "Code NAF",
+          "nomSci": "Nom SCI",
+          "option": "Options sélectionnées"
+        }
+      },
+      "signatures": {
+        "title": "Signatures électroniques de contrat en cours"
+      }
+    },
+    "navigation": {
+      "home": "Accueil",
+      "subscription": "Souscription",
+      "listDevis": "devis établis",
+      "listSigning": "Liste signatures",
+      "tutorial": "Tutorials",
+      "page": "Page",
+      "pageNotFound": "Page Not Found",
+      "pageNotAuthorized": "Page Not Authorized",
+      "tutorials": "Tutorials",
+      "cogs": {
+        "title": "Liens",
+        "home": "Accueil",
+        "page": "Page"
+      },
+      "struct": {
+        "title": "Structure produits",
+        "product": "Produits",
+        "formule": "Formules",
+        "explain": "Critères"
+      },
+      "connexion": {
+        "signin": "S'identifier",
+        "signout": "Déconnexion"
+      }
+    },
+    "snackBar": {
+      "error": "Une erreur s'est produite",
+      "errorVerif": "Erreur lors de la vérification de la date",
+      "cool": "Tout va bien",
+      "dateValidation": "La date d'effet saisie n'est pas dans la période autorisée.",
+      "errorDateFormat": "Le format de la date n'est pas correct."
+    },
+    "components": {
+      "inputsRequiredDevis": "Champs obligatoires afin d'enregistrer un devis.",
+      "inputsRequiredContrat": "Champs obligatoires afin de transformer le devis en contrat"
+    },
+    "forms": {
+      "labels": {
+        "nomSci": "Nom SCI",
+        "nomFormule": "Formule",
+        "numeroInscription": "N° d'inscription",
+        "locauxSciAvecPartsSouscripteur": "Les locaux servant à l'exploitation de l'activité appartiennent-ils à une SCI dont le souscripteur détient des parts ?",
+        "yes": "Oui",
+        "no": "Non",
+        "civilStatus": "Civilité",
+        "name": "Nom",
+        "firstName": "Prénom",
+        "dateNaissance": "Date de naissance",
+        "lieuNaissance": "Lieu de naissance",
+        "quality": "En qualité de",
+        "recipient": "Destinataire",
+        "recipientSecondary": "Destinataire en copie",
+        "mailObject": "Objet",
+        "attachment": "Pièces jointes",
+        "message": "Message",
+        "phone": "Téléphone {number}",
+        "mail": "Mail",
+        "siret": "SIRET",
+        "by": "Emis par",
+        "contractNum": "N° contrat",
+        "devisBy": "Devis établi par",
+        "address": "Adresse",
+        "address2": "Adresse 2",
+        "address3": "Adresse 3",
+        "cityCode": "Code postal",
+        "city": "Ville",
+        "idDevis": "N° devis",
+        "idContrat": "N° contrat",
+        "customer": "Client",
+        "product": "Produit",
+        "createdDate": "Date de création",
+        "createBefore": "Date de création",
+        "createAfter": "Date de fin de validité",
+        "prime": "Prime TTC",
+        "status": "Statut",
+        "search": "Recherche",
+        "dateRange": "Entre le et le",
+        "dateExpire": "Date d'expiration",
+        "signinName": "Nom signataire",
+        "signinPhone": "tel signataire",
+        "signinMail": "email signataire",
+        "signinLaunch": "Date de lancement signataire",
+        "companyName": "Raison sociale",
+        "companyNameAsl": "Nom de l'ASL",
+        "companyNameCopro": "Nom de la copropriété",
+        "immatriculationNumber": "Numéro d'immatriculation",
+        "legalId": "Identifiant légal",
+        "legalForm": "Forme juridique",
+        "nafCode": "Code NAF",
+        "nomRaisonSociale": "Nom / raison sociale",
+        "countries": "Pays",
+        "howManyLegalProceeding": "Combien de procédures judiciaires avez-vous eu depuis les 36 derniers mois ?",
+        "numberOfProceeding": "Nombre de procédures judiciaires en défense ?",
+        "numberOfProceedingInDemande": "Nombre de procédures judiciaires en demande ?",
+        "egalExpensesInsurance": "Avez-vous déjà souscrit à une assurance de protection juridique ?",
+        "terminatedLegalExpenses": "Avez-vous déjà fait l'objet d'une résiliation par un assureur de protection juridique ?",
+        "judicialReorganisation": "Avez-vous fait l'objet d'un redressement judiciaire depuis les 36 derniers mois ?",
+        "contractType": "Contrat type",
+        "htPrimePerYear": "Prime Annuelle HT",
+        "taxe": "Taxe",
+        "ttcPerYear": "Prime Annuelle TTC",
+        "contrac": "Contrat type",
+        "dateNextPayment": "Date de la prochaine échéance",
+        "prorata": "Prorata de prime (jusqu'à la prochaine échéance)",
+        "owner": "Titulaire du compte",
+        "iban": "IBAN",
+        "bic": "BIC",
+        "paymentMethod": "Moyen de paiement",
+        "splitting": "Fractionnement",
+        "mainDeadline": "Échéance principale",
+        "employees": "Effectif",
+        "turnover": "Chiffre d'affaires",
+        "areaOfActivity": "Domaine d'activité",
+        "headquarters": "Siège",
+        "corporateName": "Dénomination",
+        "numberCoOwnerVertical": "Nombre de copropriétés verticales",
+        "numberIndividualVillas": "Nombre de villas individuelles",
+        "groupeAsl": "Présence de plusieurs ASL au sein d'une ASL les regroupant ?",
+        "commercialisationDirecte": "Activité avec commercialisation directe ?",
+        "activiteAccessoire": "Activités accessoires de diversification agricole ?",
+        "activity": "Activité précise",
+        "associationActivity": "Activité statutaire précise",
+        "typeBien": "Type de bien",
+        "nomPropreOuSociete": "Détenez-vous les lots en nom propre ou via une société ?",
+        "nomPropre": "Nom Propre",
+        "viaSociete": "Via une Société ?",
+        "verticale": "Verticale",
+        "horizontale": "Horizontale",
+        "iaCode": "Code IA",
+        "codeCourtier": "Code courtier",
+        "distributeur": "Distributeur",
+        "groupeComptable": "Délégation",
+        "delegationLabel": "{groupeComptable} - {siteGroupeComptable}",
+        "gererParLabel": "CFDP {siteGroupeComptable}",
+        "gererPar": "Géré par",
+        "id": "ID",
+        "nom": "Nom"
+      },
+      "popupEtude": {
+        "title": "Votre devis en cours de création comporte des éléments de risque nécessitant une étude préalable de CFDP :",
+        "question": "Souhaitez-vous envoyer ce devis en étude auprès de CFDP ou voulez-vous vérifier votre saisie ?",
+        "refuseSuccess": "Le devis a été refusé avec succès",
+        "refuseError": "Erreur de refus devis",
+        "validationSuccess": "Le devis a bien été émis",
+        "validationError": "Erreur validation devis",
+        "validation": "Valider l'émission du devis",
+        "refuse": "Refuser le devis",
+        "confirmationQuestion": "Confirmez-vous la validation de l'émission de ce devis malgré le non respect de certaines règles de souscription ?",
+        "rules": "Règles de souscription non valides :",
+        "cancel": "Annuler"
+      },
+      "popupError": {
+        "title": "RISQUE NON ELIGIBLE",
+        "titleAdmin": "SIRET NON ELIGIBLE",
+        "intro": "Votre devis en cours de création comporte des éléments ne permettant pas d'accepter la souscription de ce risque :",
+        "introAdmin": "Un devis/contrat est cours de validité pour cette entreprise. Voulez-vous quand même passer à l'étape suivante ?",
+        "outro": "Vous pouvez vous rapprocher de votre délégation de proximité pour étudier spécifiquement votre besoin"
+      },
+      "placeholders": {
+        "recipient": "Ajouter un destinataire",
+        "recipientSecondary": "Destinataire en copie",
+        "mailObject": "Objet du mail"
+      },
+      "errors": {
+        "updateFail": "Update fail",
+        "pushEtudeFail": "Erreur lors de la mise en étude du devis",
+        "maxDate": "Veuillez saisir une date antérieure ou égale à la date du ",
+        "minDate": "Veuillez saisir une date supérieure à la date du ",
+        "validation": "Erreur de validation du devis"
+      },
+      "buttons": {
+        "detailGaranties": "Consulter le détail des garanties",
+        "modifierInfos": "Afficher les informations",
+        "save": "Enregistrer",
+        "next": "Étape suivante",
+        "send": "Envoyer",
+        "close": "Fermer",
+        "choice": "Choisir",
+        "check": "Vérifier",
+        "valid": "Valider",
+        "detail": "détail",
+        "delete": "Supprimer",
+        "estimate": "Devis",
+        "goToEstimate": "Passer au devis",
+        "back": "Retour",
+        "relaunch": "relancer",
+        "cancel": "Annuler",
+        "update": "Mettre à jour",
+        "addSci": "Ajouter une sci",
+        "calculate": "Calculer",
+        "search": "Rechercher",
+        "select": "Sélectionner",
+        "download": "Téléchargement",
+        "filters": "Filtres",
+        "addBranch": " Ajouter une filiale",
+        "addSecondHome": "Ajouter une résidence secondaire",
+        "madeDevis": "Faire le devis",
+        "chooseFormula": "Sélectionner",
+        "exportExcel": "Export Excel",
+        "upgradeDate": "Modifier la date d'effet",
+        "upgradeOffer": "Modifier le choix de l'offre",
+        "upgradeInformation": "Modifier les infos complémentaires",
+        "consult": "Consulter",
+        "upgradeConvertContract": "Transformer en contrat",
+        "newDevis": "Nouveau devis pour ce prospect/client",
+        "clone": "Dupliquer",
+        "followUpSignin": "Relancer signataire",
+        "dropOutSignin": "Abandonner signature",
+        "editor": "Rédacteur",
+        "downloadAllDocuments": "Dossier complet",
+        "downloadAllDocumentsFromContratSummary": "Télécharger les documents",
+        "refresh": "Rafraîchir",
+        "duplicateDevis": "Duplication devis",
+        "emitDevis": " Emettre le devis",
+        "additionalinfos": "Infos complémentaires",
+        "choiceOfOffer": "choix de l'offre",
+        "effectiveDate": " Date d'effet",
+        "modify": "Modifier",
+        "downloadDoc": "Télécharger document signé",
+        "addBien": "Ajouter des adresses de bien",
+        "backModifDevis": "Retour au devis",
+        "closeDevis": "Clôturer ce devis",
+        "sendDevisEtude": "Envoyer le devis en étude",
+        "treatment": "Traiter le devis"
+      }
+    },
+    "steps": {
+      "requestDate": "Date d'effet souhaitée",
+      "identification": "Vérification du Siret",
+      "addClient": "Recherche client",
+      "pricing": "Tarification",
+      "additionalInformation": "Informations complémentaires",
+      "payment": "Paiement",
+      "signin": "Signature"
+    },
+    "enums": {
+      "status": {
+        "status": "Statut",
+        "create": "En création",
+        "send": "Emis",
+        "underStudy": "En étude",
+        "expire": "Expire",
+        "transformed": "Transformé",
+        "current": "En cours",
+        "archive": "Archivé",
+        "abandoned": "Abandonné",
+        "ended": "Terminé",
+        "refuse": "Refusé"
+      },
+      "months": {
+        "january": "Janvier",
+        "february": "Février",
+        "march": "Mars",
+        "april": "Avril",
+        "may": "Mai",
+        "june": "Juin",
+        "july": "Juillet",
+        "august": "Août",
+        "september": "Septembre",
+        "october": "Octobre",
+        "november": "Novembre",
+        "december": "Décembre"
+      }
+    },
+    "errors": {
+      "general_error": "Une erreur est survenue",
+      "recoveryDevis": "Erreur lors de la récupération",
+      "typageError": "Erreur durant l'appel de list Typages"
+    },
+    "overview": {
+      "generateDocMessage": "Documents en cours de génération...",
+      "loadingDocument": "Document en cours de chargement",
+      "emitDevisMesssage": "Émettre le devis pour déclencher la génération des documents."
+    },
+    "devis": {
+      "creation": {
+        "success": "Le devis a été initialisé",
+        "error": "Erreur creation devis"
+      },
+      "update": {
+        "updateDevis": "Devis mis à jour"
+      },
+      "duplication": {
+        "success": "Le devis a bien été dupliqué",
+        "error": "Ce produit n’est plus ouvert à la souscription pour cette date d’effet",
+        "dateError": "La date doit être > ou = à la date du jour.",
+        "souscriptionError": "Ce produit n’est plus ouvert à la souscription pour cette date d’effet"
+      },
+      "codeNaf": {
+        "error": "Erreur de récuperation des codes naf"
+      },
+      "secteursActivites": {
+        "error": "Erreur de récuperation des secteurs d'activités."
+      },
+      "activitePrincipale": {
+        "error": "Erreur lors de la récupération des activités principales"
+      },
+      "formesJuridiques": {
+        "error": "Erreur récuperation formes juridiques"
+      },
+      "redactors": {
+        "errors": "Erreur de récuperation des rédacteurs"
+      },
+      "clientsCC": {
+        "error": "Erreur lors de la récupération des contrats associés",
+        "errorStore": "La recherche d'un souscripteur existant est indisponible pour le moment. Vous pouvez continuer votre saisie en créant un nouveau prospect.",
+        "errorGetClient": "Erreur lors de la récupération du détail client"
+      },
+      "pappers": {
+        "hydratationEmpty": "Aucune donnée disponible pour le moment pour ce SIRET",
+        "hydratationError": "Erreur lors du pré-remplissage du devis",
+        "hydratationSuccess": "Pré-remplissage du devis effectué"
+      },
+      "errors": {
+        "preTransformation": "Erreur lors de la pré-transformation",
+        "validerTousLesChamps": "Veuillez valider tous les champs"
+      }
+    },
+    "Signin": {
+      "error": "Erreur de récuperation de la liste des signatures",
+      "errorGetSign": "Erreur lors de la vérification d'une signature existante",
+      "abandon": {
+        "succes": "Signature abandonnée avec succès",
+        "error": "Erreur d'abandon signature"
+      },
+      "raise": {
+        "succes": "Le signataire a été relancé avec succès",
+        "error": "Erreur de relance signataire"
+      },
+      "download": {
+        "error": "Erreur téléchargement de document signé"
+      }
+    }
+  }
+  

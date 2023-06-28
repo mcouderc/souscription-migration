@@ -92,7 +92,7 @@ import type {
   FormuleExtraDevisHydratation,
   ValorisationCritere
 } from 'open-api-souscription-typescript';
-import i18n from '@/plugins/i18n';
+import { useI18n } from 'vue-i18n';
 import useSnackBar from '@/composables/useSnackBar';
 import useBodyTableTarificationService from '@/composables/useBodyTableTarificationService';
 import DataTableFormules from '@/components/devis/tarification/DataTableFormules/DataTableFormules.vue';

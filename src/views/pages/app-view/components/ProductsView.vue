@@ -46,7 +46,6 @@ import useAuth from '@/composables/authenticate/useAuth';
 import useProducts from '@/composables/useProducts';
 import { computed, onMounted, watch } from 'vue';
 import { useRoute } from 'vue-router';
-import useI18n from 'vue-i18n';
 
 const { products, productByMarket, getProducts } = useProducts();
 const { isAuthenticatedComputed } = useAuth();

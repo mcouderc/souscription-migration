@@ -10,10 +10,16 @@ export default function () {
     return roles.includes(roleStore.value);
   };
 
-  const doesHavePermissionAmongRoleBoker = (): boolean => {
-    return permissionMatrix.onlyBrokerRole.includes(roleStore.value);
+  const doesHavePermissionAmongRoleBroker = (): boolean => {
+    return (
+      permissionMatrix.onlyBrokerRole.includes(roleStore.value) ||
+      permissionMatrix.onlyBrokerN2Role.includes(roleStore.value)
+    );
   };
 
+  const doesHavePermissionAmongRoleBrokerN2 = (): boolean => {
+    return permissionMatrix.onlyBrokerN2Role.includes(roleStore.value);
+  };
   const doesHavePermissionAmongRoleDelegate = (): boolean => {
     return permissionMatrix.onlyDelegateRole.includes(roleStore.value);
   };
@@ -36,11 +42,12 @@ export default function () {
 
   return {
     doesHavePermission,
-    doesHavePermissionAmongRoleBoker,
+    doesHavePermissionAmongRoleBroker,
     doesHavePermissionAmongAllRolesButBroker,
     doesHavePermissionAmongAllRolesButConsultation,
     doesHavePermissionAmongAllRolesButBrokerAndConsultation,
     doesHavePermissionAmongAllRolesButBrokerAndConsultationAndDelegate,
-    doesHavePermissionAmongRoleDelegate
+    doesHavePermissionAmongRoleDelegate,
+    doesHavePermissionAmongRoleBrokerN2
   };
 }

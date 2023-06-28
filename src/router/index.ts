@@ -15,7 +15,10 @@ import HomeView from '@/views/pages/app-view/components/HomeView.vue';
 import SubscriptionProduits from '@/views/pages/app-view/components/ProductsView.vue';
 /* End Subscription page */
 
+/* Start Devis etablis */
+import ListDevisView from '@/views/pages/app-view/components/ListDevisView.vue';
 import { ProduitTypeRisqueEnum } from 'open-api-souscription-typescript';
+/* End Devis etablis */
 
 const { permissionMatrix } = usePermissionMatrix();
 
@@ -34,6 +37,16 @@ const projectroutes = [
         meta: {
           isAuthorizationRequired: true,
           roles: permissionMatrix.allRolesButConsultation
+        }
+      },
+      {
+        path: '/devis-etablis',
+        name: 'ListDevis',
+        component: ListDevisView,
+        meta: {
+          title: 'navigation.subscription',
+          isAuthorizationRequired: true,
+          roles: permissionMatrix.allRoles
         }
       },
       {

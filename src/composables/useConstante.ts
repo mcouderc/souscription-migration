@@ -96,6 +96,13 @@ export default () => {
     '': 0
   };
 
+  const COLLECTION = {
+    SCI: 'Scis',
+    BIEN: 'Biens',
+    SECOND_HOME: 'Résidence secondaires',
+    FILIALES: 'Filiales'
+  };
+
   const PAYMENT_MEANS_CONFIE = {
     PRELEVEMENT_CFDP: 'Prélèvement par CFDP',
     PRELEVEMENT_COURTIER: 'Prélèvement par le courtier',
@@ -218,6 +225,7 @@ export default () => {
     TYPE_DOC_IPID,
     TYPE_DOC_DEVIS,
     HASH_UNION,
-    UID_UNION
+    UID_UNION,
+    COLLECTION
   };
 };

@@ -52,7 +52,7 @@ import { format, isAfter, isBefore, parse } from 'date-fns';
 import { extend, ValidationObserver, ValidationProvider } from 'vee-validate';
 import type VueI18n from 'vue-i18n';
 import useConstante from '@/composables/useConstante';
-import i18n from '@/plugins/i18n';
+import { useI18n } from 'vue-i18n';
 import { max_value, min_value } from 'vee-validate/dist/rules';
 
 export interface IProps {

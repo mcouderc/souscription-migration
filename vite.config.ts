@@ -25,7 +25,9 @@ export default defineConfig(({ mode }) => {
       }
     },
     plugins: [
-      vue(),
+      vue({
+        customElement: true
+      }),
       vueJsx(),
       legacy({
         targets: ['ie >= 11'],

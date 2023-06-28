@@ -1,225 +1,17 @@
 <template>
-  <validation-observer ref="observer">
-    <form>
-      <ContainerModel1 :pending="pendingRef">
-        <template #Header>
-          <HeaderModel1>
-            <template #Header-Title>Devis</template>
-            <template #Header-SubTitle>{{ subtitle }}</template>
-          </HeaderModel1>
-        </template>
-
-        <template #Body>
-          <v-expansion-panels v-model="panelOpenRef" flat multiple accordion>
-            <!--            Accordéon  souscripteur -->
-            <v-expansion-panel v-if="formValidateApplyComputed.souscripteur.display">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.subscriber') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <validation-observer>
-                  <FormSubscriber
-                    :data="modelRef"
-                    :taking-status-into-account="takingStatusIntoAccount"
-                    :suscriber-form-value-validate="formValidateApplyComputed.souscripteur"
-                    :compar-disabled-copro="tabComparToDisabledCoproRef"
-                    @changeTypePersonne="changeTypePersonne"
-                    @checkIfObjectIsSame="checkIfObjectIsSame"
-                    @checkEligibility="checkEligibility($event)"
-                  ></FormSubscriber>
-                </validation-observer>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <!--            Accordéon  Représenté par -->
-            <v-expansion-panel v-if="isDisplayRepresenteParRef">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.representedBy') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormRepresentedBy
-                  :data="modelRef.representantPersonnePhysique"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  :statut="modelRef.statut"
-                  @checkIfObjectIsSame="checkIfObjectIsSame"
-                  :represented-by-form-value-validate="formValidateApplyComputed.representePar"
-                ></FormRepresentedBy>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <!--            Accordéon Bénéficiaire -->
-            <v-expansion-panel v-if="formValidateApplyComputed.beneficiaire.display">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.beneficiary') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormBeneficiary
-                  :data="modelRef"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  @checkIfObjectIsSame="checkIfObjectIsSame"
-                  :beneficiare-form-value-validate="formValidateApplyComputed.beneficiaire"
-                ></FormBeneficiary>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <!--            Accordeon  Description risque-->
-            <v-expansion-panel v-if="formValidateApplyComputed.descriptionRisque.display">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.riskDescription') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormRisk
-                  :data="modelRef"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  :description-risk-form-value-validate="
-                    formValidateApplyComputed.descriptionRisque
-                  "
-                  @checkIfObjectIsSame="checkIfObjectIsSame()"
-                ></FormRisk>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <v-expansion-panel v-if="isFillialeVisible()">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.branch') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormFiliales
-                  :data="modelRef"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  :filiale-value-validate="formValidateApplyComputed.filiale"
-                  :button-disabled="!checkFormatSiret()"
-                  @checkIfObjectIsSame="checkIfObjectIsSame()"
-                ></FormFiliales>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <!--            Accordeon  Antécédent -->
-            <v-expansion-panel v-if="formValidateApplyComputed.antecedent.display">
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.history') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormAntecedent
-                  :data="modelRef"
-                  @checkIfObjectIsSame="checkIfObjectIsSame"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  :antecedant-form-value-validate="formValidateApplyComputed.antecedent"
-                  :is-update="isUpdateRef"
-                ></FormAntecedent>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-            <InfoGarantie>
-              {{ subtitle }}
-            </InfoGarantie>
-            <v-expansion-panel>
-              <v-expansion-panel-header>
-                <v-col cols="12">
-                  <h2 class="text-primary text-h6 text-capitalize">
-                    {{ $t('page.additionalInformation.editor') }}
-                  </h2>
-                </v-col>
-              </v-expansion-panel-header>
-              <v-expansion-panel-content>
-                <FormEditor
-                  v-model="modelRef.emisPar"
-                  :taking-status-into-account="takingStatusIntoAccount"
-                  @checkIfObjectIsSame="checkIfObjectIsSame"
-                ></FormEditor>
-              </v-expansion-panel-content>
-            </v-expansion-panel>
-          </v-expansion-panels>
-          <v-row class="px-5 mt-10 mb-5">
-            <v-col cols="12" class="pa-0 mt-5">
-              <ContainerButtons1 @cancelResponse="back()" @submitResponse="submitFormDevis()">
-                <template v-if="!update" #Cancel>
-                  <v-icon left> mdi-arrow-left-bold </v-icon>
-                  {{ $t('forms.buttons.back') }}
-                </template>
-                <template #Submit>
-                  <v-icon left> mdi-check </v-icon>
-                  <template v-if="!update">
-                    {{ $t('forms.buttons.next') }}
-                  </template>
-                  <template v-else> {{ $t('forms.buttons.update') }} </template>
-                </template>
-              </ContainerButtons1>
-            </v-col>
-          </v-row>
-        </template>
-        <template #Column>
-          <ColumnSlot v-if="formValidateApplyComputed.souscripteur.identifiantLegal.visible">
-            <!--Add condition s'il est éligible-->
-            <v-col cols="12" class="text-body text-default">
-              <ButtonAutocompletionSiret :devis="modelRef" @devisFromPapper="devisFromPapper()" />
-            </v-col>
-          </ColumnSlot>
-          <ColumnSlot>
-            <v-col v-if="isVisible" cols="12" class="text-body text-default">
-              <InfoRequiredCreateDevis
-                :model="modelRef"
-                :statut="devis.statut"
-                :personne-morale="isSouscripteurIsPersonneMoralRef"
-                :siret-is-required="
-                  isRequired(
-                    formValidateApplyComputed.souscripteur.identifiantLegal,
-                    takingStatusIntoAccount
-                  )
-                "
-                :taking-status-into-account="takingStatusIntoAccount"
-              />
-            </v-col>
-            <v-col v-if="devis.numeroDevis" cols="12" class="mb-5">
-              <small class="mb-5">
-                {{ $t('page.additionalInformation.number') }}
-                <b>{{ devis.numeroDevis }}</b>
-              </small>
-              <v-divider />
-            </v-col>
-            <v-col v-if="isSaveIsVisible()" cols="12">
-              <p class="text-body-2 mt-5">Pensez à enregistrer votre progression.</p>
-              <v-btn
-                pain
-                elevation="0"
-                block
-                color="primary"
-                :loading="btnLoadingSaveRef"
-                @click.prevent="saveform"
-              >
-                <v-icon right dark class="mr-2"> mdi-content-save </v-icon>
-                {{ $t('forms.buttons.save') }}
-              </v-btn>
-            </v-col>
-            <v-overlay v-if="pendingDevisNumberRef" :light="true" absolute>
-              <v-progress-circular indeterminate size="25" />
-            </v-overlay>
-          </ColumnSlot>
-        </template>
-      </ContainerModel1>
-    </form>
-    <DialogDevisEtude @continueProcess="submitFormToEtude($event)" />
-    <DialogError />
-    <DialogEligibiliteAdmin @nextStep="onAdminNextAction()" />
-  </validation-observer>
+  <Form>
+    <v-col cols="12">
+      <h2 class="text-primary text-h6 text-capitalize">
+        {{ $t('page.additionalInformation.riskDescription') }}
+      </h2>
+    </v-col>
+    <FormRisk
+      v-if="formValidateApplyComputed.descriptionRisque.display"
+      :data="modelRef"
+      :description-risk-form-value-validate="formValidateApplyComputed.descriptionRisque"
+      @checkIfObjectIsSame="checkIfObjectIsSame()"
+    ></FormRisk>
+  </Form>
 </template>
 
 <script setup lang="ts">
@@ -230,24 +22,8 @@ import {
   DevisEntrepriseTypeRisqueEnum,
   ReponseEligibiliteStatutEnum
 } from 'open-api-souscription-typescript';
-import { ValidationObserver } from 'vee-validate';
-import FormSubscriber from '@/components/devis/forms/FormSubscriber.vue';
-import FormRepresentedBy from '@/components/devis/forms/FormRepresentedBy.vue';
-import InfoGarantie from '@/components/devis/InfoGarantie.vue';
+import { Field, Form } from 'vee-validate';
 import FormRisk from '@/components/devis/forms/FormRisk.vue';
-import FormFiliales from '@/components/devis/forms/FormFiliales.vue';
-import FormAntecedent from '@/components/devis/forms/FormAntecedent.vue';
-import FormEditor from '@/components/devis/forms/FormEditor.vue';
-import ContainerModel1 from '@/components/common/templates/ContainerModel1.vue';
-import HeaderModel1 from '@/components/common/templates/HeaderModel1.vue';
-import ColumnSlot from '@/components/common/templates/ColumnSlot.vue';
-import InfoRequiredCreateDevis from '@/components/devis/InfoRequiredCreateDevis.vue';
-import ButtonAutocompletionSiret from '@/components/common/form/ButtonAutocompletionSiret.vue';
-import ContainerButtons1 from '@/components/common/templates/ContainerButtons1.vue';
-import DialogEligibiliteAdmin from '@/components/devis/forms/DialogEligibiliteAdmin.vue';
-import DialogDevisEtude from '@/components/devis/forms/DialogDevisEtude.vue';
-import DialogError from '@/components/devis/forms/DialogError.vue';
-import validationRulesSiret from '@/services/validationRulesSiret';
 import { computed, onMounted, ref } from 'vue';
 import useSnackBar from '@/composables/useSnackBar';
 import useDevis from '@/composables/useDevis';
@@ -264,11 +40,11 @@ import {
   patchDevisApi,
   documentsApi
 } from '@/plugins/open-api';
-import FormBeneficiary from '@/components/devis/forms/FormBeneficiary.vue';
 import { devisInitiatorApi } from '@/plugins/open-api';
 import useFormeJuridiqueStore from '@/composables/useFormeJuridiqueStore';
 import useListTypage from '@/composables/useListTypage';
 import useConstante from '@/composables/useConstante';
+import validationRulesSiret from '@/services/validationRulesSiret';
 
 export interface IProps {
   takingStatusIntoAccount?: boolean;

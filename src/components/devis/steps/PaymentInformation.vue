@@ -262,7 +262,7 @@ import {
   DevisEntrepriseStatutEnum
 } from 'open-api-souscription-typescript';
 import { computed, onMounted, ref } from 'vue';
-import i18n from '@/plugins/i18n';
+import { useI18n } from 'vue-i18n';
 import useSnackBar from '@/composables/useSnackBar';
 import {
   devisApi,

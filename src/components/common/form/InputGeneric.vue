@@ -1,109 +1,92 @@
 <template>
-  <validation-provider
-    v-slot="{ errors }"
-    :name="props.title"
-    :rules="{
-      required: props.isRequired ? 'required' : false,
-      regex: props.regex === 'phone' ? REGEX.PHONE : props.regex
-    }"
-  >
-    <template v-if="props.inputType === 'number'">
-      <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
-        <strong>* </strong>
-      </span>
-      <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
-      <v-text-field
-        class="mt-0 pt-0"
-        :id="props.inputId"
-        v-model.number="modelRef"
-        :light="true"
-        dense
-        :value="props.value"
-        :type="props.inputType"
-        step="any"
-        :min="0"
-        :title="props.title"
-        :data-cy="props.inputId"
-        :error-messages="errors"
-        :required="props.isRequired"
-        :readonly="props.isReadonly"
-        :disabled="props.isDisabled"
-        :suffix="currencyToShowComputed"
-        :maxlength="props.maxLength"
-        hide-spin-buttons
-        @wheel="$event.target.blur()"
-        @input="onEventInputAction(modelRef)"
-        @keyup="onCheckIfObjectIsSameAction(true)"
-      >
-      </v-text-field
-    ></template>
-    <template v-else>
-      <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
-        <strong>* </strong>
-      </span>
-      <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
-      <v-text-field
-        class="mt-0 pt-0"
-        :id="props.inputId"
-        v-model="modelRef"
-        dense
-        :light="true"
-        :value="props.value"
-        :title="props.title"
-        :type="props.inputType"
-        :counter="props.counter"
-        :data-cy="props.inputId"
-        :error-messages="errors"
-        :required="props.isRequired"
-        :readonly="props.isReadonly"
-        :disabled="props.isDisabled"
-        :maxlength="props.maxLength"
-        hide-spin-buttons
-        @wheel="$event.target.blur()"
-        @input="onEventInputAction(modelRef)"
-        @keyup="onCheckIfObjectIsSameAction(true)"
-      >
-      </v-text-field>
-    </template>
-  </validation-provider>
+  <div>
+    <v-text-field
+      v-if="props.inputType === 'number'"
+      class="mt-0 pt-0"
+      v-model.number="value"
+      dense
+      :light="true"
+      :id="props.inputId"
+      :label="label"
+      :error-messages="errors"
+      :type="props.inputType"
+      :data-cy="props.inputId"
+      :required="props.isRequired"
+      :readonly="props.isReadonly"
+      :disabled="props.isDisabled"
+      :suffix="currencyToShowComputed"
+      hide-spin-buttons
+      @wheel="$event.target.blur()"
+      @input="onEventInputAction(value)"
+    >
+      <template #label>
+        <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
+        <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
+          <strong> * </strong>
+        </span>
+      </template>
+    </v-text-field>
+    <v-text-field
+      v-if="props.inputType !== 'number'"
+      class="mt-0 pt-0"
+      v-model="value"
+      density="comfortable"
+      :light="true"
+      :id="props.inputId"
+      :label="label"
+      :error-messages="errors"
+      :type="props.inputType"
+      :data-cy="props.inputId"
+      :required="props.isRequired"
+      :readonly="props.isReadonly"
+      :disabled="props.isDisabled"
+      :suffix="currencyToShowComputed"
+      hide-spin-buttons
+      @wheel="$event.target.blur()"
+      @input="onEventInputAction(value)"
+    >
+      <template #label>
+        <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
+        <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
+          <strong> * </strong>
+        </span>
+      </template>
+    </v-text-field>
+  </div>
 </template>
-
 <script setup lang="ts">
+import { computed, toRef } from 'vue';
+import { useField } from 'vee-validate';
 import inputStyle from '@/services/inputStyle';
-// import { ValidationProvider } from 'vee-validate';
-import useConstante from '@/composables/useConstante';
-import { computed, ref, watch } from 'vue';
 
-/**
- * props
- */
 export interface IProps {
-  value?: string | number;
-  inputType: string;
-  inputId: string;
+  value?: string;
+  inputType?: string;
+  inputId?: string;
   regex?: string;
   isReadonly?: boolean;
   isDisabled?: boolean;
   isRequired?: boolean;
-  title: string;
+  title?: string;
   counter?: number;
   suffix?: boolean;
   maxLength?: number;
+  name?: string;
+  type?: string;
+  label?: string;
 }
-
 const props = withDefaults(defineProps<IProps>(), {
   value: '',
   isReadonly: false,
   isDisabled: false,
   isRequired: false,
   counter: null,
-  regex: ''
+  regex: '',
+  name: '',
+  type: '',
+  label: '',
+  title: ''
 });
-
-const { labelStyle, starStyle } = inputStyle();
-const { REGEX } = useConstante();
-const modelRef = ref(props.value);
-const currencyEuro = '€';
 
 const emit = defineEmits(['input', 'checkIfObjectIsSame']);
 
@@ -111,18 +94,11 @@ const onEventInputAction = (modelValue) => {
   emit('input', modelValue);
 };
 
-const onCheckIfObjectIsSameAction = (isSame: boolean) => {
-  emit('checkIfObjectIsSame', isSame);
-};
+const { labelStyle, starStyle } = inputStyle();
+const currencyEuro = '€';
+const { value, errors } = useField(toRef(props, 'name'), undefined);
 
 const currencyToShowComputed = computed(() => {
   return props.suffix ? currencyEuro : '';
 });
-
-watch(
-  () => props.value,
-  (newVal) => {
-    modelRef.value = newVal;
-  }
-);
 </script>

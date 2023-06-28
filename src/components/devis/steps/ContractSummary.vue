@@ -104,7 +104,7 @@ import { computed, onMounted, ref } from 'vue';
 import { SignatureElectroniqueStatutEnum } from 'open-api-souscription-typescript';
 import { format, subDays } from 'date-fns';
 import { signatureElectroniqueApi } from '@/plugins/open-api';
-import i18n from '@/plugins/i18n';
+import { useI18n } from 'vue-i18n';
 import useSnackBar from '@/composables/useSnackBar';
 import { useRoute } from 'vue-router/composables';
 import useDevis from '@/composables/useDevis';

@@ -1,7 +1,7 @@
 <template>
   <v-menu bottom v-if="isValue(props.headerItem)" open-on-hover offset-y>
-    <template v-slot:activator="{ on, attrs }">
-      <v-icon color="green" v-bind="attrs" v-on="on">mdi-check</v-icon>
+    <template v-slot:activator="{ props }">
+      <v-icon color="green" v-bind="props">mdi-check</v-icon>
     </template>
     <ClausesDetail v-if="isCardExist()" :headerItem="props.headerItem" />
   </v-menu>

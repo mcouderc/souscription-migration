@@ -9,7 +9,7 @@
 
 <script setup lang="ts">
 import useLoader from '@/composables/useLoader';
-import { VContainer, VOverlay, VProgressCircular } from 'vuetify/lib';
+import { VContainer, VOverlay, VProgressCircular } from 'vuetify/components';
 
 const { loaderParams } = useLoader();
 </script>

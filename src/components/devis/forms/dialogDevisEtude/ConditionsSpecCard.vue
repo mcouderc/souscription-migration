@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { VTextarea } from 'vuetify/lib';
+import { VTextarea } from 'vuetify/components';
 import { ref } from 'vue';
 
 const emit = defineEmits(['editConditionSpec']);

@@ -35,7 +35,7 @@
 import ContainerButtons1 from '@/components/common/templates/ContainerButtons1.vue';
 import { ValidationObserver } from 'vee-validate';
 import { ref } from 'vue';
-import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/components';
 import eventBus from '@/plugins/eventBus';
 
 const dialogEtudeRef = ref(false);

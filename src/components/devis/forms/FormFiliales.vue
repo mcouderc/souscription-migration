@@ -56,7 +56,7 @@ const props = withDefaults(defineProps<IProps>(), {
   takingStatusIntoAccount: false,
   buttonDisabled: false
 });
-
+const { t } = useI18n();
 const { COLLECTION } = useConstante();
 const { devis } = useDevis();
 
@@ -65,15 +65,15 @@ const modelRef = ref(props.data);
 
 const hedersFilialeDynamic = (): DataTableHeader[] => {
   const header = [
-    { text: i18n.tc('forms.labels.companyName'), value: 'raisonSociale' },
-    { text: i18n.tc('forms.labels.siret'), value: 'identifiantLegal' }
+    { text: t('forms.labels.companyName'), value: 'raisonSociale' },
+    { text: t('forms.labels.siret'), value: 'identifiantLegal' }
   ];
   if (modelRef.value.typeRisque !== DevisEntrepriseTypeRisqueEnum.Agricole) {
-    header.push({ text: i18n.tc('forms.labels.nafCode'), value: 'codeNaf' });
+    header.push({ text: t('forms.labels.nafCode'), value: 'codeNaf' });
   } else {
-    header.push({ text: i18n.tc('forms.labels.activity'), value: 'activite' });
+    header.push({ text: t('forms.labels.activity'), value: 'activite' });
   }
-  header.push({ text: i18n.tc('forms.labels.countries'), value: 'adresse.pays' });
+  header.push({ text: t('forms.labels.countries'), value: 'adresse.pays' });
   return header;
 };
 

@@ -37,7 +37,7 @@ import usePermission from '@/composables/authenticate/usePermission';
 import ConditionsSpecCard from '@/components/devis/forms/dialogDevisEtude/ConditionsSpecCard.vue';
 import useDevis from '@/composables/useDevis';
 import router from '@/router';
-import { useRoute } from 'vue-router/composables';
+import { useRoute } from 'vue-router';
 import { ref } from 'vue';
 
 const { devis } = useDevis();

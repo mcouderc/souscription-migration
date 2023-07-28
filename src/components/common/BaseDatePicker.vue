@@ -28,7 +28,6 @@
           <v-text-field
             class="mt-0 pt-0"
             v-model="computedDateText"
-            v-on="on"
             :light="true"
             :error-messages="errors"
             type="date"

@@ -1,8 +1,8 @@
 <template>
   <DetailPasGaranties v-if="!isGarantieExistRef" />
   <v-dialog v-else v-model="dialogGarantieRef" width="800">
-    <template v-slot:activator="{ on, attrs }">
-      <v-btn color="primary" small v-bind="attrs" v-on="on">
+    <template v-slot:activator="{ props }">
+      <v-btn color="primary" small v-bind="props">
         {{ $tc('forms.buttons.detailGaranties') }}</v-btn
       >
     </template>

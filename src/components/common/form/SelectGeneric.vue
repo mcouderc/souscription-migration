@@ -1,10 +1,5 @@
 <template>
-  <validation-provider
-    v-slot="{ errors }"
-    :name="props.title"
-    :vid="inputId"
-    :rules="isRequired ? 'required' : ''"
-  >
+  <div>
     <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
       <strong>* </strong>
     </span>
@@ -13,16 +8,15 @@
     }}</label>
     <v-select
       :class="`mt-0 pt-0 ${inputClass}`"
-      v-model="modelRef"
+      v-model="value"
       :light="true"
-      dense
+      density="default"
       :id="props.inputId"
       :value="value"
       :items="items"
-      :item-text="itemsKeys ? itemsKeys[1] : null"
+      :item-title="itemsKeys ? itemsKeys[1] : null"
       :item-value="itemsKeys ? itemsKeys[2] : null"
       :data-cy="inputId"
-      :menu-props="{ bottom: true, offsetY: true, light: true }"
       :error-messages="errors"
       :required="isRequired"
       :readonly="isReadonly"
@@ -35,13 +29,13 @@
       @change="checkIfObjectIsSameAction(true)"
     >
     </v-select>
-  </validation-provider>
+  </div>
 </template>
 
 <script setup lang="ts">
 import inputStyle from '@/services/inputStyle';
-import { ValidationProvider } from 'vee-validate';
-import { ref, watch } from 'vue';
+import { useField } from 'vee-validate';
+import { ref, toRef, watch } from 'vue';
 
 export interface IProps {
   value?: any;
@@ -83,6 +77,8 @@ const checkIfObjectIsSameAction = (objectIsSame: boolean) => {
   emit('selectedItem', modelRef);
   emit('checkIfObjectIsSame', objectIsSame);
 };
+
+const { value, errors } = useField(toRef(props, 'value'), undefined);
 
 watch(
   () => props.value,

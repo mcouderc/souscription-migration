@@ -200,10 +200,10 @@ import SelectCountry from '@/components/common/form/SelectCountry.vue';
 import useDevis from '@/composables/useDevis';
 import { useApiCall } from '@/composables/api-call/useApiCall';
 import useLoader from '@/composables/useLoader';
-import { VContainer, VRow, VCol, VTextField, VIcon } from 'vuetify/lib';
+import { VContainer, VRow, VCol, VTextField, VIcon } from 'vuetify/components';
 import { onMounted, ref, watch } from 'vue';
 import { CritereTypeEnum } from 'open-api-produits-typescript';
-import { useRoute } from 'vue-router/composables';
+import { useRoute } from 'vue-router';
 import useSelectedProduct from '@/composables/useSelectedProduct';
 import useIdentifiantProfil from '@/composables/useIdentifiantProfil';
 import {
@@ -234,6 +234,7 @@ const { identifiantProfil } = useIdentifiantProfil();
 const { addMessageErrorSnackBarAction } = useSnackBar();
 const route = useRoute();
 const { COPIE_EXPIRE, REGEX } = useConstante();
+const { t } = useI18n();
 
 //VARIABLES
 const devisRef = ref(devis);
@@ -373,7 +374,7 @@ const showCritereValo = (): boolean => {
 const getListCriteresValoriseProduit = async (idProduct) => {
   await doFetchCriteresProduit(idProduct);
   if (isErrorCriteresProduit.value) {
-    addMessageErrorSnackBarAction(i18n.t('page.tarification.errorGetCritere').toString());
+    addMessageErrorSnackBarAction(t('page.tarification.errorGetCritere').toString());
   }
   if (listCritereProduit.value) {
     return listCritereProduit.value;
@@ -422,7 +423,7 @@ const submitFormCalculate = async () => {
       calculateProductPricing();
     });
   } else {
-    addMessageErrorSnackBarAction(i18n.t('devis.errors.validerTousLesChamps').toString());
+    addMessageErrorSnackBarAction(t('devis.errors.validerTousLesChamps').toString());
   }
 };
 
@@ -501,7 +502,7 @@ const hydrateDevisFromCriteres = async () => {
 
   await doFetchHydratDevisCriteres(devisAndValorisationCritere);
   if (isErrorHydratDevisCriteres.value) {
-    addMessageErrorSnackBarAction(i18n.t('page.tarification.errorHydrate').toString());
+    addMessageErrorSnackBarAction(t('page.tarification.errorHydrate').toString());
     return false;
   }
   if (hydratvaloCritere.value) {
@@ -539,7 +540,7 @@ const calculateProductPricing = async () => {
         });
     } else {
       //autres erreur
-      addMessageErrorSnackBarAction(i18n.tc('page.tarification.errorTarification'));
+      addMessageErrorSnackBarAction(t('page.tarification.errorTarification'));
     }
   }
   tarificationProduitRef.value = tarificationProduit.value;
@@ -571,7 +572,7 @@ const calculateProductPricing = async () => {
       emit('formulesValorisees', formulesRef.value);
     } else {
       //Si le back ne me retourne pas de formule
-      addMessageErrorSnackBarAction(i18n.tc('page.tarification.title'));
+      addMessageErrorSnackBarAction(t('page.tarification.title'));
     }
   }
   isBtnDisabledRef.value = false;

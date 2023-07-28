@@ -17,6 +17,8 @@ import SubscriptionProduits from '@/views/pages/app-view/components/ProductsView
 
 /* Start Devis etablis */
 import ListDevisView from '@/views/pages/app-view/components/ListDevisView.vue';
+import ListSignin from '../views/pages/app-view/components/ListSigninView.vue';
+
 import { ProduitTypeRisqueEnum } from 'open-api-souscription-typescript';
 /* End Devis etablis */
 
@@ -47,6 +49,15 @@ const projectroutes = [
           title: 'navigation.subscription',
           isAuthorizationRequired: true,
           roles: permissionMatrix.allRoles
+        }
+      },
+      {
+        path: '/liste-signatures',
+        name: 'ListSignin',
+        component: ListSignin,
+        meta: {
+          isAuthorizationRequired: true,
+          roles: permissionMatrix.onlyBrokerRole
         }
       },
       {

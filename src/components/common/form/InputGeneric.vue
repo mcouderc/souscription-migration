@@ -4,7 +4,7 @@
       v-if="props.inputType === 'number'"
       class="mt-0 pt-0"
       v-model.number="value"
-      dense
+      density="default"
       :light="true"
       :id="props.inputId"
       :label="label"
@@ -17,7 +17,7 @@
       :suffix="currencyToShowComputed"
       hide-spin-buttons
       @wheel="$event.target.blur()"
-      @input="onEventInputAction(value)"
+      @update:model-value="onEventInputAction(value)"
     >
       <template #label>
         <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
@@ -43,7 +43,7 @@
       :suffix="currencyToShowComputed"
       hide-spin-buttons
       @wheel="$event.target.blur()"
-      @input="onEventInputAction(value)"
+      @update:model-value="onEventInputAction(value)"
     >
       <template #label>
         <label :class="labelStyle(errors, props.isDisabled)">{{ props.title }}</label>
@@ -91,6 +91,7 @@ const props = withDefaults(defineProps<IProps>(), {
 const emit = defineEmits(['input', 'checkIfObjectIsSame']);
 
 const onEventInputAction = (modelValue) => {
+  console.log('🚀 ~ file: InputGeneric.vue:94 ~ onEventInputAction ~ modelValue:', modelValue);
   emit('input', modelValue);
 };
 

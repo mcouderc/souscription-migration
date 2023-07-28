@@ -1,13 +1,5 @@
 <template>
-  <validation-provider
-    v-slot="{ errors }"
-    :name="props.title"
-    :vid="props.inputId"
-    :rules="{
-      required: props.isRequired ? 'required' : false,
-      regex: props.regex
-    }"
-  >
+  <div>
     <span v-if="props.isRequired" :class="starStyle(props.isDisabled)">
       <strong>* </strong>
     </span>
@@ -18,15 +10,14 @@
       <v-combobox
         :class="`mt-0 pt-0 ${inputClass}`"
         :id="props.inputId"
-        v-model="modelRef"
-        dense
-        :light="true"
+        v-model="value"
+        density="default"
         v-bind:items="itemsRef"
         :clearable="isClearable"
         :multiple="isMultiple"
         :title="props.title"
         :data-cy="props.inputId"
-        :item-text="itemsKeys && itemsKeys.length > 0 ? itemsKeys[1] : 'label'"
+        :item-title="itemsKeys && itemsKeys.length > 0 ? itemsKeys[1] : 'label'"
         :item-value="itemsKeys && itemsKeys.length > 0 ? itemsKeys[2] : null"
         :maxlength="props.maxLength"
         :search-input.sync="searchItemRef"
@@ -46,17 +37,17 @@
         <template v-if="isCustomType()" v-slot:selection="{ item }">
           {{
             props.type === 'address' && typeof item === 'object'
-              ? item.address
+              ? item.value.address
               : props.type === 'siret' && typeof item === 'object'
-              ? item.nom_entreprise
+              ? item.value.nom_entreprise
               : item
           }}
         </template>
         <template v-if="isCustomType()" v-slot:item="{ item }">
           {{
             props.queryTarget === 'siret'
-              ? `${item.nom_entreprise} - ${item.siege.siret}`
-              : item.label
+              ? `${item.value.nom_entreprise} - ${item.value.siege.siret}`
+              : item.value.label
           }}
         </template>
       </v-combobox>
@@ -71,14 +62,14 @@
         <v-icon v-else>mdi-map-marker</v-icon>
       </div>
     </div>
-  </validation-provider>
+  </div>
 </template>
 <script setup lang="ts">
 import inputStyle from '@/services/inputStyle';
-import { computed, onMounted, ref, watch } from 'vue';
-import { ValidationProvider } from 'vee-validate';
+import { computed, onMounted, ref, toRef, watch } from 'vue';
 import searchAddress from '@/services/address';
 import searchSiret from '@/services/siret';
+import { useField } from 'vee-validate';
 /**
  * props
  */
@@ -122,7 +113,7 @@ const props = withDefaults(defineProps<IProps>(), {
 
 const TIME_SLEEP = 300;
 
-const itemsRef = ref<any>(props.items || []);
+const itemsRef = ref<any>(props.value.items || []);
 const modelRef = ref<any>(props.value || '');
 const timeOutRef = ref<any>(null);
 const pendingRef = ref<boolean>(false);
@@ -252,6 +243,8 @@ const emitsEvent = (address) => {
   }
   emit('change', modelRef.value);
 };
+
+const { value, errors } = useField(toRef(props, 'value'), undefined);
 
 /**
  * watchers

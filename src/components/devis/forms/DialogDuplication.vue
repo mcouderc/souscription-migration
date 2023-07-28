@@ -52,7 +52,7 @@ import { patchDevisApi, produitsApi } from '@/plugins/open-api';
 import router from '@/router';
 import { format, formatISO } from 'date-fns';
 import { computed, ref, watch } from 'vue';
-import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/components';
 import useRoutageProduit from '@/composables/useRoutageProduit';
 import eventBus from '@/plugins/eventBus';
 import { useI18n } from 'vue-i18n';

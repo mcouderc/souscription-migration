@@ -9,7 +9,7 @@
       {{ snackBar.message }}
 
       <template v-slot:actions="{ attrs }">
-        <v-btn color="white" text v-bind="attrs" @click="closeSnakbar">
+        <v-btn color="white" text v-bind="props" @click="closeSnakbar">
           {{ $t('forms.buttons.close') }}
         </v-btn>
       </template>

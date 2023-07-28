@@ -53,7 +53,7 @@ import useLoader from '@/composables/useLoader';
 import useSnackBar from '@/composables/useSnackBar';
 import useConstante from '@/composables/useConstante';
 import useDevis from '@/composables/useDevis';
-import { VTextarea } from 'vuetify/lib';
+import { VTextarea } from 'vuetify/components';
 import { ref, watch, computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import _ from 'lodash';

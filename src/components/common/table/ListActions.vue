@@ -1,9 +1,7 @@
 <template>
   <v-menu :light="true" left offset-x>
-    <template v-slot:activator="{ on, attrs }">
-      <v-icon data-cy="listActions" color="blueHelios" v-bind="attrs" v-on="on">
-        mdi-dots-vertical
-      </v-icon>
+    <template v-slot:activator="{ props }">
+      <v-icon data-cy="listActions" color="blueHelios" v-bind="props"> mdi-dots-vertical </v-icon>
     </template>
     <v-list dense>
       <v-list-item-group>

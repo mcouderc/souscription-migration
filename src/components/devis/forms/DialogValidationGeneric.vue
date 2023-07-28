@@ -21,7 +21,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/components';
 import eventBus from '@/plugins/eventBus';
 
 const dialogValidationGenericRef = ref(false);

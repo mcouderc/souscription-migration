@@ -91,7 +91,7 @@ import type {
   SignatureElectronique
 } from 'open-api-souscription-typescript';
 import eventBus from '@/plugins/eventBus';
-import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/components';
 
 export interface IProps {
   devis: DevisEntreprise;
@@ -101,6 +101,7 @@ const props = withDefaults(defineProps<IProps>(), {});
 
 const { addMessageErrorSnackBarAction, addMessageSuccesSnackBarAction } = useSnackBar();
 const { REGEX } = useConstante();
+const { t } = useI18n();
 const { setLoaderGlobal } = useLoader();
 const signatureModalRef = ref<boolean>(false);
 const observerSignRef = ref(null);
@@ -131,12 +132,12 @@ const onSubmitSignature = async () => {
   if (isValidSign) {
     await doFetchCreateSignature(props.devis.id, signatoryModelRef.value);
     if (isErrorCreateSignature.value) {
-      addMessageErrorSnackBarAction(i18n.tc('page.summary.signin.error'));
+      addMessageErrorSnackBarAction(t('page.summary.signin.error'));
     }
     if (createSignatureResponse.value) {
       signatureModalRef.value = false;
       emit('submitEvent');
-      addMessageSuccesSnackBarAction(i18n.tc('page.summary.signin.success'));
+      addMessageSuccesSnackBarAction(t('page.summary.signin.success'));
     }
   }
 };

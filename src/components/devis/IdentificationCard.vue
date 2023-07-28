@@ -22,39 +22,40 @@ export interface IProps {
 const props = withDefaults(defineProps<IProps>(), {
   profil: {} as IPapperEntreprise
 });
+const { t } = useI18n();
 
 const profilFilteredComputed = computed(() => {
   return {
     denomination: {
-      label: i18n.t('forms.labels.corporateName'),
+      label: t('forms.labels.corporateName'),
       value: props.profil.denomination
     },
     siege: {
-      label: i18n.t('forms.labels.headquarters'),
+      label: t('forms.labels.headquarters'),
       value: `${props.profil.siege.adresse_ligne_1 || ''} ${
         props.profil.siege.adresse_ligne_2 || ''
       } ${props.profil.siege.code_postal || ''} ${props.profil.siege.ville || ''}`
     },
     siret: {
-      label: i18n.t('forms.labels.siret'),
+      label: t('forms.labels.siret'),
       value: props.profil.siege.siret_formate
     },
     domaine_activite: {
-      label: i18n.t('forms.labels.areaOfActivity'),
+      label: t('forms.labels.areaOfActivity'),
       value: props.profil.domaine_activite
     },
     code_naf: {
-      label: i18n.t('forms.labels.nafCode'),
+      label: t('forms.labels.nafCode'),
       value: `${props.profil.code_naf} - ${props.profil.libelle_code_naf}`
     },
 
-    effectif: { label: i18n.t('forms.labels.employees'), value: props.profil.effectif },
+    effectif: { label: t('forms.labels.employees'), value: props.profil.effectif },
     chiffre_affaires: {
-      label: i18n.t('forms.labels.turnover'),
+      label: t('forms.labels.turnover'),
       value: props.profil.chiffre_affaires
     },
     date_creation: {
-      label: i18n.t('forms.labels.createdDate'),
+      label: t('forms.labels.createdDate'),
       value: props.profil.date_creation_formate
     }
   };

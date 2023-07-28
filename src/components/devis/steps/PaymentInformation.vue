@@ -270,7 +270,7 @@ import {
   informationPaiementApi
 } from '@/plugins/open-api';
 import _ from 'lodash';
-import { useRoute } from 'vue-router/composables';
+import { useRoute } from 'vue-router';
 import useConstante from '@/composables/useConstante';
 import useDevis from '@/composables/useDevis';
 import useUser from '@/composables/authenticate/useUser';
@@ -288,6 +288,7 @@ const {
 const { formatAmount } = formatDataConsultDevis();
 const { user } = useUser();
 const { setDevisAction } = useDevis();
+const { t } = useI18n();
 
 const PAYMENT_MEANS =
   user.value.typeEncaissement === NON_CONFIE ? PAYMENT_MEANS_NON_CONFIE : PAYMENT_MEANS_CONFIE;
@@ -400,7 +401,7 @@ const sendInfoContrat = async () => {
         modelRef.value.prorataPrimeAnnuelle = response.data.prorataPrimeAnnuelle;
       })
       .catch(() => {
-        addMessageErrorSnackBarAction(i18n.tc('page.payment.updateError'));
+        addMessageErrorSnackBarAction(t('page.payment.updateError'));
       })
       .finally(() => {
         pendingInfoRef.value = false;
@@ -418,14 +419,14 @@ const validateDevis = async () => {
         .transformation(devisRef.value.id, cloneFormRef.value as InformationPaiement)
         .then((response) => {
           setDevisAction(_.merge(devisRef.value, response.data));
-          addMessageSuccesSnackBarAction(i18n.tc('page.payment.submitSuccess'));
+          addMessageSuccesSnackBarAction(t('page.payment.submitSuccess'));
           onNextAction();
         })
         .catch((error) => {
           if (error?.response?.data?.violations[0]?.title) {
             addMessageErrorSnackBarAction(error.response.data.violations[0].title);
           } else {
-            addMessageErrorSnackBarAction(i18n.tc('page.payment.submitError'));
+            addMessageErrorSnackBarAction(t('page.payment.submitError'));
           }
         })
         .finally(() => {

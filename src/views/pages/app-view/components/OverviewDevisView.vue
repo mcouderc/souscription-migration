@@ -55,7 +55,7 @@
                   <div v-if="isEditableDevisComputed" class="d-flex grid-gap-10">
                     <v-menu offset-y>
                       <template v-slot:activator="{ attrs, on }">
-                        <v-btn color="primary" class="white--text" v-bind="attrs" v-on="on">
+                        <v-btn color="primary" class="white--text" v-bind="props">
                           {{ $t('forms.buttons.modify') }}<v-icon>mdi-menu-down</v-icon>
                         </v-btn>
                       </template>

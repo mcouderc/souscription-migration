@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { VContainer, VOverlay, VProgressCircular } from 'vuetify/lib';
+import { VContainer, VOverlay, VProgressCircular } from 'vuetify/components';
 
 export interface IProps {
   isLoading: boolean;

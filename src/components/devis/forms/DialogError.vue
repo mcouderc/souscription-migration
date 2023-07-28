@@ -40,10 +40,10 @@ import { ValidationObserver } from 'vee-validate';
 import { ref, watch } from 'vue';
 import { useApiCall } from '@/composables/api-call/useApiCall';
 import useLoader from '@/composables/useLoader';
-import { useRouter } from 'vue-router/composables';
+import { useRouter } from 'vue-router';
 import useSnackBar from '@/composables/useSnackBar';
 import useDevis from '@/composables/useDevis';
-import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol } from 'vuetify/components';
 import eventBus from '@/plugins/eventBus';
 import { patchDevisApi } from '@/plugins/open-api';
 import {
@@ -59,7 +59,7 @@ const { addMessageErrorSnackBarAction, addMessageSuccesSnackBarAction } = useSna
 const router = useRouter();
 const dialogErrorRef = ref(false);
 const responseValidationRef = ref([]);
-
+const { t } = useI18n();
 const {
   isLoading: isLoadingRefuse,
   isError: isErrorRefuse,
@@ -91,11 +91,11 @@ const clotureDevis = async () => {
 
   await doFetchRefuse(devis.value.id, patchData);
   if (isErrorRefuse.value) {
-    addMessageErrorSnackBarAction(i18n.tc('forms.popupEtude.refuseError'));
+    addMessageErrorSnackBarAction(t('forms.popupEtude.refuseError'));
   }
   if (refuseResponse.value) {
     setDevisAction(refuseResponse.value);
-    addMessageSuccesSnackBarAction(i18n.tc('forms.popupEtude.refuseSuccess'));
+    addMessageSuccesSnackBarAction(t('forms.popupEtude.refuseSuccess'));
     router.replace({ name: 'ListDevis' });
   }
 };

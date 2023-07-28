@@ -1,6 +1,6 @@
 <template>
   <div>
-    <label> {{ modelRef.emisPar }} </label>
+    <label>emisPar: {{ modelRef.emisPar }} </label>
     <InputGeneric
       name="emisPar"
       title="emisPar"
@@ -8,7 +8,7 @@
       type="text"
       v-model="modelRef.emisPar"
     />
-    <label> {{ modelRef.secteur }} </label>
+    <label>secteur: {{ modelRef.secteur }} </label>
     <InputGeneric
       name="secteur"
       label="secteur"

@@ -1,16 +1,16 @@
 <template>
-  <!-- <FormRiskProfessionel
+  <FormRiskProfessionel
     v-if="isCanShow([PROFESSIONEL])"
     :data="modelRef"
     :taking-status-into-account="props.takingStatusIntoAccount"
     :description-risk-form-value-validate="descriptionRiskFormValueValidate"
     @checkIfObjectIsSame="onCheckIfObjectIsSameAction(true)"
-  /> -->
-  <FormRiskParticular
+  />
+  <!-- <FormRiskParticular
     v-if="isCanShow([PARTICULIER])"
     :data="modelRef"
     @checkIfObjectIsSame="onCheckIfObjectIsSameAction(true)"
-  />
+  /> -->
 </template>
 
 <script setup lang="ts">

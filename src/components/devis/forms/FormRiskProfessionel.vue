@@ -247,18 +247,19 @@ const { REGEX, COLLECTION } = useConstante();
 const { codeNafs } = useCodeNafs();
 const { formatNumberWithSpace } = numberSeparator();
 const { isRequired, isDisableHelper } = useFormValidate();
+const { t } = useI18n();
 const props = withDefaults(defineProps<IProps>(), {
   data: () => ({}),
   takingStatusIntoAccount: false
 });
 
 const header: DataTableHeader[] = [
-  { text: i18n.tc('forms.labels.companyName'), value: 'raisonSociale' },
-  { text: i18n.tc('forms.labels.siret'), value: 'identifiantLegal' },
-  { text: i18n.tc('forms.labels.address'), value: 'adresse.adresse1' },
-  { text: i18n.tc('forms.labels.cityCode'), value: 'adresse.codePostal' },
-  { text: i18n.tc('forms.labels.city'), value: 'adresse.ville' },
-  { text: i18n.tc('forms.labels.countries'), value: 'adresse.pays' }
+  { text: t('forms.labels.companyName'), value: 'raisonSociale' },
+  { text: t('forms.labels.siret'), value: 'identifiantLegal' },
+  { text: t('forms.labels.address'), value: 'adresse.adresse1' },
+  { text: t('forms.labels.cityCode'), value: 'adresse.codePostal' },
+  { text: t('forms.labels.city'), value: 'adresse.ville' },
+  { text: t('forms.labels.countries'), value: 'adresse.pays' }
 ];
 
 const modelScisRef = ref({});
@@ -294,7 +295,7 @@ const noMaxDate = computed(() => {
 });
 
 const nafCodeActivtyTitleComputed = computed(() => {
-  return i18n.tc('page.additionalInformation.nafCodeActivty');
+  return t('page.additionalInformation.nafCodeActivty');
 });
 
 const inputRequireComputed = computed(() => {

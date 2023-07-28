@@ -117,6 +117,7 @@ export interface IProps {
   representedByFormValueValidate: IRepresentePar;
 }
 
+const { t } = useI18n();
 const { CIVILITE } = useConstante();
 const { qualities } = useQualities();
 const civiliteRef = ref(CIVILITE);
@@ -140,7 +141,7 @@ const onCheckIfObjectIsSameAction = (isSame: boolean) => {
 const modelRef = ref(props.data);
 
 const civilStatusTitleComputed = computed(() => {
-  return i18n.tc('forms.labels.civilStatus');
+  return t('forms.labels.civilStatus');
 });
 
 watch(

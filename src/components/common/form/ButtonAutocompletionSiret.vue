@@ -3,14 +3,13 @@
     <p>{{ $t('page.additionalInformation.preRemplirSiret') }}</p>
     <v-col cols="12">
       <v-dialog v-model="dialogRef" :light="true" width="650">
-        <template v-slot:activator="{ on, attrs }">
+        <template v-slot:activator="{ props }">
           <v-btn
             pain
             elevation="0"
             block
             color="primary"
-            v-bind="attrs"
-            v-on="on"
+            v-bind="props"
             :disabled="isDisabledButtonRef"
           >
             {{ $t('page.additionalInformation.preRemplirButton') }}

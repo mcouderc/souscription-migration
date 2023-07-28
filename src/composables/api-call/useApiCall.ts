@@ -33,6 +33,5 @@ export function useApiCall<T>(params: IParams) {
   if (params.isMounted) {
     doFetch();
   }
-
   return { isLoading, isError, errorMessage, data, status, doFetch };
 }

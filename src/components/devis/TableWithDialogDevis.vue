@@ -7,11 +7,10 @@
       max-width="60%"
       :retain-focus="false"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template v-slot:activator="{ props }">
         <v-btn
           color="primary"
-          v-bind="attrs"
-          v-on="on"
+          v-bind="props"
           :disabled="props.disabled"
           v-if="props.showBtnAddDialog && !props.isToContrat"
         >

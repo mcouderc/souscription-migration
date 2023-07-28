@@ -137,6 +137,7 @@ const { setLoaderGlobal } = useLoader();
 const { codeNafs } = useCodeNafs();
 const { devis } = useDevis();
 const { isDisableHelper } = useFormValidate();
+const { t } = useI18n();
 const props = withDefaults(defineProps<IProps>(), {
   statut: '',
   takingStatusIntoAccount: false
@@ -163,13 +164,13 @@ const {
 });
 
 const activitePrincipaleTitleComputed = computed(() => {
-  return i18n.tc('page.additionalInformation.activityAgricole');
+  return t('page.additionalInformation.activityAgricole');
 });
 
 const listOfCountries = ref<Array<Pays>>([]);
 
 const companyNameComputed = computed(() => {
-  return i18n.tc('forms.labels.companyName');
+  return t('forms.labels.companyName');
 });
 
 const emit = defineEmits(['input', 'checkIfObjectIsSame']);
@@ -195,7 +196,7 @@ const { addMessageErrorSnackBarAction } = useSnackBar();
 const getActivitePrincipale = async (): Promise<string[]> => {
   await doFetchActivitesPrincipales(modelRef.value.adresse.pays);
   if (isErrorActivitesPrincipales.value) {
-    addMessageErrorSnackBarAction(i18n.tc('devis.activitePrincipale.error'));
+    addMessageErrorSnackBarAction(t('devis.activitePrincipale.error'));
   }
   if (listActivitesPrincip.value) {
     listActivitesPrincip.value.map((item) => {

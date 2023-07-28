@@ -71,10 +71,10 @@ import useLoader from '@/composables/useLoader';
 import { patchDevisApi } from '@/plugins/open-api';
 import router from '@/router';
 import { ref, watch } from 'vue';
-import { VDialog, VCard, VContainer, VRow, VCol, VDivider } from 'vuetify/lib';
+import { VDialog, VCard, VContainer, VRow, VCol, VDivider } from 'vuetify/components';
 import eventBus from '@/plugins/eventBus';
 import { useI18n } from 'vue-i18n';
-import { useRoute } from 'vue-router/composables';
+import { useRoute } from 'vue-router';
 
 const dialogTreatmentRef = ref(false);
 const tabMsgRef = ref([]);

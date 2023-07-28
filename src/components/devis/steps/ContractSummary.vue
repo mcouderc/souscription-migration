@@ -106,7 +106,7 @@ import { format, subDays } from 'date-fns';
 import { signatureElectroniqueApi } from '@/plugins/open-api';
 import { useI18n } from 'vue-i18n';
 import useSnackBar from '@/composables/useSnackBar';
-import { useRoute } from 'vue-router/composables';
+import { useRoute } from 'vue-router';
 import useDevis from '@/composables/useDevis';
 import ConsultGaranties from '@/components/devis/garanties/ConsultGaranties.vue';
 import formatDataConsultDevis from '@/services/formatDataConsultDevis';
@@ -116,6 +116,7 @@ import eventBus from '@/plugins/eventBus';
 const { devis } = useDevis();
 const { addMessageErrorSnackBarAction } = useSnackBar();
 const { formatAmountContractSummaryDifferentType } = formatDataConsultDevis();
+const { t } = useI18n();
 
 const summaryRef = ref<IConsultDevisDataChild[]>([]);
 const isAlreadySignRef = ref(true);
@@ -190,7 +191,7 @@ onMounted(async () => {
         response.data.data[0].statut !== SignatureElectroniqueStatutEnum.Abandonne;
     })
     .catch(() => {
-      addMessageErrorSnackBarAction(i18n.tc('Signin.errorGetSign'));
+      addMessageErrorSnackBarAction(t('Signin.errorGetSign'));
     })
     .finally(() => {
       overlayRef.value = false;
@@ -199,43 +200,43 @@ onMounted(async () => {
   if (route.query.id) {
     summaryRef.value = [
       {
-        label: i18n.tc('page.summary.subscriber'),
+        label: t('page.summary.subscriber'),
         value: souscriptorComputed.value || '-'
       },
       {
-        label: i18n.tc('page.summary.mail'),
+        label: t('page.summary.mail'),
         value: mailComputed.value || '-'
       },
       {
-        label: i18n.tc('page.summary.product'),
+        label: t('page.summary.product'),
         value: produitComputed.value || '-'
       },
       {
-        label: i18n.tc('page.summary.idContract'),
+        label: t('page.summary.idContract'),
         value: devis.value.numeroContrat || '-'
       },
       {
-        label: i18n.tc('page.summary.date'),
+        label: t('page.summary.date'),
         value: format(new Date(devis.value.dateEffet), 'dd-MM-yyyy') || '-'
       },
       {
-        label: i18n.tc('page.summary.deadline'),
+        label: t('page.summary.deadline'),
         value: dateReduceComputed.value || '-'
       },
       {
-        label: i18n.tc('page.summary.splitting'),
+        label: t('page.summary.splitting'),
         value: devis.value?.informationPaiement?.fractionnement || '-'
       },
       {
-        label: i18n.tc('page.summary.primeTTC'),
+        label: t('page.summary.primeTTC'),
         value: `${devis.value.primeTtc.toFixed(2)}€` || '-'
       },
       {
-        label: i18n.tc('page.summary.prorata'),
+        label: t('page.summary.prorata'),
         value: `${devis.value?.informationPaiement?.prorataPrime.toFixed(2)}€` || '-'
       },
       {
-        label: i18n.tc('page.summary.period'),
+        label: t('page.summary.period'),
         value: timePeriodComputed.value || '-'
       }
     ];

@@ -31,7 +31,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { ValidationProvider } from 'vee-validate';
-import { VRadioGroup, VRadio } from 'vuetify/lib';
+import { VRadioGroup, VRadio } from 'vuetify/components';
 import inputStyle from '@/services/inputStyle';
 
 export interface IProps {

@@ -200,7 +200,7 @@ import useFormValidate from '@/composables/useFormValidateHelper';
 import type { IAntecedant } from '@/models/form_validate/interface/IAntecedant';
 import useConstante from '@/composables/useConstante';
 import { DevisEntrepriseStatutEnum } from 'open-api-souscription-typescript';
-import { VRow, VCol } from 'vuetify/lib';
+import { VRow, VCol } from 'vuetify/components';
 import eventBus from '@/plugins/eventBus';
 
 export interface IProps {
@@ -217,7 +217,7 @@ const props = withDefaults(defineProps<IProps>(), {
 const { isRequired, isDisableHelper } = useFormValidate();
 const { REGEX } = useConstante();
 const modelRef = ref<DevisEntreprise>(props.data);
-
+const { t } = useI18n();
 watch(
   () => props.data,
   (newVal) => {
@@ -230,7 +230,7 @@ onMounted(() => {
 });
 
 const LegalProceedingTitleComputed = computed(() => {
-  return i18n.tc('forms.labels.howManyLegalProceeding');
+  return t('forms.labels.howManyLegalProceeding');
 });
 
 const emit = defineEmits(['input', 'checkIfObjectIsSame', 'blur']);
@@ -276,7 +276,7 @@ const isAdditionValid = () => {
       isNotValid:
         modelRef.value.nombreProcedures !==
         modelRef.value.nombreProceduresEnDemande + modelRef.value.nombreProceduresEnDefense,
-      message: i18n.tc('forms.errors.coherenceNbProcedure')
+      message: t('forms.errors.coherenceNbProcedure')
     });
   }
 };
